@@ -1,0 +1,17 @@
+<html>
+<body>
+<form action="/" method="post">
+	{% for quest in quests %}
+    {% csrf_token %}
+    <!-- {{ form }} -->
+    <pre>{{quest.quest}}</pre>
+    {% for answer in quest.answers %}
+    <select>
+    	<option value={{forloop.counter}}>{{answer.answer}}</option>
+    </select>
+    {% endfor %}
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
